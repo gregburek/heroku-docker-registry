@@ -2,3 +2,4 @@ docker-registry==0.8.1
 bugsnag
 newrelic
 Flask-cors
+psycopg2
