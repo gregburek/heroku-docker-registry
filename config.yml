@@ -18,7 +18,7 @@ common: &common
     # No search backend
     search_backend: _env:SEARCH_BACKEND
     # SQLite search backend
-    sqlalchemy_index_database: _env:SQLALCHEMY_INDEX_DATABASE:sqlite:////tmp/docker-registry.db
+    sqlalchemy_index_database: _env:DATABASE_URL:sqlite:////tmp/docker-registry.db
 
     # Mirroring is not enabled
     mirroring:
