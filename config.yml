@@ -52,7 +52,7 @@ common: &common
         to_addr: _env:SMTP_TO_ADDR:noise+dockerregistry@localdomain.local
 
     # Enable bugsnag (set the API key)
-    bugsnag: _env:BUGSNAG
+    bugsnag: _env:BUGSNAG_API_KEY
 
     # CORS support is not enabled by default
     cors:
