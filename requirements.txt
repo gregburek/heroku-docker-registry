@@ -1,4 +1,4 @@
-docker-registry==0.8.1
+git+git://github.com/docker/docker-registry.git
 bugsnag
 newrelic
 Flask-cors
