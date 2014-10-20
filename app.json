@@ -1,0 +1,26 @@
+{
+    "name": "A Docker Registry, on Heroku",
+    "description": "Runs docker-registry as a Heroku app",
+    "website": "https://github.com/gregburek/heroku-docker-registry",
+    "repository": "https://github.com/gregburek/heroku-docker-registry",
+    "success_url": "/",
+    "keywords": [
+        "docker",
+        "registry"
+    ],
+    "addons": [
+        "bugsnag",
+        "newrelic",
+        "heroku-postgresql"
+    ],
+    "env": {
+        "DOCKER_REGISTRY_CONFIG": "/app/config.yml",
+        "SEARCH_BACKEND": "sqlalchemy",
+        "SETTINGS_FLAVOR": "s3",
+        "STORAGE_PATH": "/registry",
+        "STORAGE_REDIRECT": "true",
+        "AWS_KEY": { "description":"Your AWS API key" },
+        "AWS_SECRET": { "description":"Your AWS API secret key" },
+        "AWS_BUCKET": { "description":"Your AWS S3 bucket" }
+    }
+}
