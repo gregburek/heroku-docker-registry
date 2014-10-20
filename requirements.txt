@@ -1,4 +1,4 @@
-git+git://github.com/docker/docker-registry.git
+git+git://github.com/gregburek/docker-registry.git@bugsnag
 bugsnag
 newrelic
 Flask-cors
