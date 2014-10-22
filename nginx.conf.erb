@@ -40,10 +40,21 @@ http {
     keepalive_timeout 5;
 
     location / {
+      auth_basic              "Restricted";
+      auth_basic_user_file    docker-registry.htpasswd;
+
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header Host $http_host;
       proxy_set_header X-Real-IP $remote_addr; # pass on real client's IP
       proxy_redirect off;
+      proxy_pass http://app_server;
+    }
+    location /_ping {
+      auth_basic off;
+      proxy_pass http://app_server;
+    }
+    location /v1/_ping {
+      auth_basic off;
       proxy_pass http://app_server;
     }
   }
