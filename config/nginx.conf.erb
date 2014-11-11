@@ -9,9 +9,9 @@ events {
 }
 
 http {
-        gzip on;
-        gzip_comp_level 2;
-        gzip_min_length 512;
+  gzip on;
+  gzip_comp_level 2;
+  gzip_min_length 512;
 
   server_tokens off;
 
@@ -38,6 +38,7 @@ http {
     listen <%= ENV["PORT"] %>;
     server_name _;
     keepalive_timeout 5;
+    add_header Strict-Transport-Security max-age=31536000;
 
     location / {
       auth_basic              "Restricted";
