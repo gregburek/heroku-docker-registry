@@ -4,6 +4,7 @@ Deploy your own damn app:
 
 1. Get an AWS bucket
 2. Push this button: [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/gregburek/heroku-docker-registry)
+3. `docker login https://<your-cool-app-name>.herokuapp.com`
 
 A new app will be deployed to your Heroku account, using AWS s3 as a storage
 backend and heroku-postgresql as the search index. Also, free bugsnag and new
@@ -21,7 +22,7 @@ The [nginx buildpack](https://github.com/ryandotsmith/nginx-buildpack) provides
 https redirects and basic auth to control access to your registry. Details
 about the nginx setup can be found on my
 [heroku-tls-auth-nginx-sample](https://github.com/gregburek/heroku-tls-auth-nginx-sample)
-repo.
+repo. Using the herokuapp.com ssl cert is simple and free.
 
 Thanks to `app.json` and the [Heroku
 Button](https://blog.heroku.com/archives/2014/8/7/heroku-button), your app is
