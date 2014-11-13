@@ -31,3 +31,16 @@ index.  The included `config.yml` file is used to wire up bugsnag api tokens
 and the `DATABASE_URL` db uri.
 
 Please file issues and send PRs.
+
+## Advanced user configuration
+
+`app.json` sets `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` which have full
+read and write access to the registry. For more fine-grained control, these
+configs are also respected:
+
+* `REGISTRY_USERS`: a `,`-separated list of `username:password` pairs. These users have full access to the registry. Example: `greg:hithere,dan:hello`
+* `REGISTRY_RO_USERS`: a `,`-separated list of `username:password` pairs. These users have read-only access to the registry. Example: `build:secret,deploy:moresecret`
+
+`REGISTRY_RO_USERS` is useful for use with build and deploy authentication where
+pushing to the registry is not required. Items in `REGISTRY_USERS` are merged with
+`REGISTRY_RO_USERS` so there should be no overlap between them.
