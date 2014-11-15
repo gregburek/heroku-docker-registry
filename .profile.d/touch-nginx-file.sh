@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 mkdir -p /app/logs/nginx
 touch /tmp/app-initialized

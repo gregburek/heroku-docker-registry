@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-set -ex
 
-echo -e "${REGISTRY_USERNAME}:$(perl -le 'print crypt($ENV{"REGISTRY_PASSWORD"}, rand(0xffffffff));')" > /app/config/docker-registry.htpasswd
+set -e
+
+$HOME/bin/gen-htpasswd "$REGISTRY_USERNAME:$REGISTRY_PASSWORD,$REGISTRY_USERS" > /app/config/docker-registry.htpasswd
+$HOME/bin/gen-htpasswd "$REGISTRY_USERNAME:$REGISTRY_PASSWORD,$REGISTRY_USERS,$REGISTRY_RO_USERS" > /app/config/docker-registry-ro.htpasswd

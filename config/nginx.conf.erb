@@ -15,7 +15,7 @@ http {
 
   server_tokens off;
 
-  log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id';
+  log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id remote_user=$remote_user';
   access_log logs/nginx/access.log l2met;
   error_log logs/nginx/error.log;
 
@@ -42,7 +42,12 @@ http {
 
     location / {
       auth_basic              "Restricted";
-      auth_basic_user_file    docker-registry.htpasswd;
+      auth_basic_user_file    docker-registry-ro.htpasswd;
+
+      limit_except GET {
+        auth_basic              "Restricted";
+        auth_basic_user_file    docker-registry.htpasswd;
+      }
 
       include docker-registry.conf;
     }
