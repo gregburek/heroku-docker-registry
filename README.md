@@ -44,3 +44,15 @@ configs are also respected:
 `REGISTRY_RO_USERS` is useful for use with build and deploy authentication where
 pushing to the registry is not required. Items in `REGISTRY_USERS` are merged with
 `REGISTRY_RO_USERS` so there should be no overlap between them.
+
+## Local Development
+
+On OS X install a few homebrew packages: python, xz
+
+```
+$ pip install virtualenv
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+$ DOCKER_REGISTRY_CONFIG=$(pwd)/config.yml gunicorn --access-logfile - --error-logfile - --debug -k gevent -b 0.0.0.0:5000 -w 4 --max-requests 100 docker_registry.wsgi:application
+```
