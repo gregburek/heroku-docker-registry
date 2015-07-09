@@ -1,4 +1,7 @@
-# A Private, TLS and Auth protected Docker Registry, on Heroku
+# A DEPRECATED Private, TLS and Auth protected Docker Registry, on Heroku
+
+This app used the python docker registry which is no longer maintaned.
+Currently, this app does not run on Heroku out of the box and is deprecated.
 
 Deploy your own damn app:
 
